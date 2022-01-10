@@ -10,8 +10,12 @@ jobs:
     - uses: r-lib/actions/setup-pandoc@v1
     - name: Setup R
       uses: r-lib/actions/setup-r@master
-     
-      
+    # - id: 'auth'
+    #   name: 'Authenticate to Google Cloud'
+    #   uses: 'google-github-actions/auth@v0.4.0'
+    #   with:
+    #     workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+    #     service_account: 'delficovid@try-translate-314714.iam.gserviceaccount.com'
     - name: Setup dependencies
       run: |
         R -e 'install.packages("tidyverse")'

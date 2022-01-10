@@ -5,10 +5,11 @@ library(googledrive)
 library(googlesheets4)
 
 library(googledrive)
+gs4_deauth()
 
-drive_auth_configure(api_key = "AIzaSyAJI5TfyRDt6YEcsIXLWzVw3Yr2DLZtB1M")
-gs4_auth()
-# options(gargle_oauth_cache = '.secrets')
+# drive_auth_configure(api_key = "AIzaSyAJI5TfyRDt6YEcsIXLWzVw3Yr2DLZtB1M")
+# gs4_auth()
+# # options(gargle_oauth_cache = '.secrets')
 # 
 # options(gargle_oauth_email = TRUE)
 # 
@@ -19,7 +20,14 @@ gs4_auth()
 #   email = "aljasriin@gmail.com"
 # )
 
-
+# drive_auth(
+#   email = gargle::gargle_oauth_email(),
+#   path = NULL,
+#   scopes = "https://www.googleapis.com/auth/drive",
+#   cache = gargle::gargle_oauth_cache(),
+#   use_oob = gargle::gargle_oob_default(),
+#   token = NULL
+# )
 
 
 
