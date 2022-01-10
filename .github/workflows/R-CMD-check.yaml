@@ -20,7 +20,7 @@ jobs:
         R -e 'install.packages("janitor")'
         R -e 'install.packages("gsheet")'
         R -e 'install.packages("googlesheets4")'
-        R -e 'install.packahes("googledrive")'
+        R -e 'install.packages("googledrive")'
 
      
      
