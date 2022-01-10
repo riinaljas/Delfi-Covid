@@ -37,6 +37,6 @@ jobs:
     - name: stage changed files
       run: git add --a
     - name: commit changed files
-      run: git commit -m "ran the script"
+      run: git commit -m "run the script"
     - name: push code 
       run: git push

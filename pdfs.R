@@ -61,10 +61,10 @@ kokku <-viimane %>%
 
 mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
 drive_auth(email = "aljasriin@gmail.com")
-gs4_auth("aljasriin@gmail.com")
+#gs4_auth("aljasriin@gmail.com")
 gs4_browse(mydataurl)
 
-gs4_auth("aljasriin@gmail.com")
+#gs4_auth("aljasriin@gmail.com")
 sheet_write(kokku, mydataurl , sheet = 1)
 
 
