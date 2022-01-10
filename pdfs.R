@@ -8,7 +8,7 @@ library(googledrive)
 gs4_deauth()
 options(gargle_quiet = FALSE)
 
-
+MYJSONTOKEN = Sys.getenv("MYJSONTOKEN")
 drive_auth(path = MYJSONTOKEN)
 
 # drive_auth_configure(api_key = "AIzaSyAJI5TfyRDt6YEcsIXLWzVw3Yr2DLZtB1M")
