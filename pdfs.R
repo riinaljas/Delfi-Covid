@@ -54,7 +54,8 @@ kokku <-viimane %>%
   select(kuupaev, everything()) %>% 
   #bind_rows(eelmine) %>% 
   unique() %>% 
-  arrange(desc(kuupaev))
+  arrange(desc(kuupaev)) %>% 
+  mutate(test = Sys.time())
 
 
 mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
