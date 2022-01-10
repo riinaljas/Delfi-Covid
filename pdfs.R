@@ -6,6 +6,7 @@ library(googlesheets4)
 
 library(googledrive)
 gs4_deauth()
+options(gargle_quiet = FALSE)
 
 
 drive_auth(
