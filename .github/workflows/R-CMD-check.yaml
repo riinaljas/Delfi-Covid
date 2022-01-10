@@ -23,7 +23,7 @@ jobs:
         R -e 'install.packages("foreach")'
         R -e 'install.packages("renv")'
         R -e 'install.packages("rmarkdown")'
-        R -e 'install.packages("usethis")
+        R -e 'install.packages("usethis")'
      
      
     - name: run the script
