@@ -4,16 +4,20 @@ library(gsheet)
 library(googledrive)
 library(googlesheets4)
 
-options(gargle_oauth_cache = '.secrets')
+library(googledrive)
 
-options(gargle_oauth_email = TRUE)
+drive_auth_configure(api_key = "AIzaSyAJI5TfyRDt6YEcsIXLWzVw3Yr2DLZtB1M")
 
-list.files(".secrets/")
-
-gs4_auth(
-  cache = ".secrets",
-  email = "aljasriin@gmail.com"
-)
+# options(gargle_oauth_cache = '.secrets')
+# 
+# options(gargle_oauth_email = TRUE)
+# 
+# list.files(".secrets/")
+# 
+# gs4_auth(
+#   cache = ".secrets",
+#   email = "aljasriin@gmail.com"
+# )
 
 
 
