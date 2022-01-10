@@ -1,8 +1,22 @@
 library(tidyverse)
 library(janitor)
 library(gsheet)
-library(googlesheets4)
 library(googledrive)
+library(googlesheets4)
+
+options(gargle_oauth_cache = '.secrets')
+
+gargle::gargle_oauth_cache()
+list.files(".secrets/")
+
+gs4_auth(
+  cache = ".secrets",
+  email = "aljasriin@gmail.com"
+)
+
+
+
+
 
 ##Koroonaviiruse levik Eestis (graafik)----
 
@@ -60,13 +74,8 @@ kokku <-viimane %>%
 
 
 mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
-drive_auth(email = "aljasriin@gmail.com")
-#gs4_auth("aljasriin@gmail.com")
-gs4_browse(mydataurl)
 
-#gs4_auth("aljasriin@gmail.com")
-sheet_write(kokku, mydataurl , sheet = 1)
-
+sheet_write(kokku, mydataurl, sheet = 1)
 
 
 
