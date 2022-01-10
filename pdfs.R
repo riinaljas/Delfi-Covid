@@ -7,6 +7,16 @@ library(googlesheets4)
 library(googledrive)
 gs4_deauth()
 
+
+drive_auth(
+  email = gargle::gargle_oauth_email(),
+  path = NULL,
+  cache = gargle::gargle_oauth_cache(),
+  use_oob = gargle::gargle_oob_default(),
+  token = NULL
+)
+1
+
 # drive_auth_configure(api_key = "AIzaSyAJI5TfyRDt6YEcsIXLWzVw3Yr2DLZtB1M")
 # gs4_auth()
 # # options(gargle_oauth_cache = '.secrets')
@@ -33,7 +43,6 @@ gs4_deauth()
 
 ##Koroonaviiruse levik Eestis (graafik)----
 
-#eelmine <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")
 
 viimased_14 <- read_csv("https://opendata.digilugu.ee/opendata_covid19_tests_total.csv") %>% 
   clean_names()
@@ -83,9 +92,9 @@ kokku <-viimane %>%
   #bind_rows(eelmine) %>% 
   unique() %>% 
   arrange(desc(kuupaev)) %>% 
-  mutate(test = "scripttöötas")
-
-
+  mutate(test = Sys.time())
+gs4_auth()
+1
 mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
 
 sheet_write(kokku, mydataurl, sheet = 1)
