@@ -1,9 +1,8 @@
 library(tidyverse)
 library(janitor)
 library(gsheet)
-library(googledrive)
 library(googlesheets4)
-gs4_deauth()
+
 
 #Sys.setenv("MYHASH"="3b171fdb657ceb604a69679fa27b58c4_aljasriin@gmail.com")
 # MYJSONTOKEN=Sys.getenv("MYJSONTOKEN")
@@ -29,7 +28,7 @@ gs4_deauth()
 
 
 ##Koroonaviiruse levik Eestis (graafik)----
-
+eelmine <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")
 
 viimased_14 <- read_csv("https://opendata.digilugu.ee/opendata_covid19_tests_total.csv") %>% 
   clean_names()
@@ -78,15 +77,15 @@ kokku <-viimane %>%
   bind_cols(vakts) %>% 
   bind_cols(doose_paevas) %>% 
   select(kuupaev, everything()) %>% 
-  #bind_rows(eelmine) %>% 
+  mutate(test = Sys.time() %>% 
+           as.character()) %>% 
+  bind_rows(eelmine) %>% 
   unique() %>% 
-  arrange(desc(kuupaev)) %>% 
-  mutate(test = "tegelt tootab")
+  arrange(desc(kuupaev))
 
 mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
-gs4_browse(mydataurl)
-gs4_auth("aljasriin@gmail.com")
-sheet_write(kokku, mydataurl, sheet = 1)
+
+write_csv(kokku, "viimane.csv")
 
 
 
