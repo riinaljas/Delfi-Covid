@@ -7,22 +7,20 @@ library(googlesheets4)
 library(googledrive)
 gs4_deauth()
 options(gargle_quiet = FALSE)
+MYAPIKEY = Sys.getenv("MYAPIKEY")
+# MYJSONTOKEN = Sys.getenv("MYJSONTOKEN")
+# drive_auth(path = MYJSONTOKEN)
 
-MYJSONTOKEN = Sys.getenv("MYJSONTOKEN")
-drive_auth(path = MYJSONTOKEN)
+drive_auth_configure(api_key = MYAPIKEY)
 
-# drive_auth_configure(api_key = "AIzaSyAJI5TfyRDt6YEcsIXLWzVw3Yr2DLZtB1M")
-# gs4_auth()
-# # options(gargle_oauth_cache = '.secrets')
-# 
-# options(gargle_oauth_email = TRUE)
-# 
-# list.files(".secrets/")
-# 
+options(gargle_oauth_cache = '.secrets')
+options(gargle_oauth_email = TRUE)
+
+print("GOT PAST API KEY")
 # gs4_auth(
-#   cache = ".secrets",
-#   email = "aljasriin@gmail.com"
-# )
+# #   cache = ".secrets",
+# #   email = "aljasriin@gmail.com"
+# # )
 
 # drive_auth(
 #   email = gargle::gargle_oauth_email(),
@@ -88,6 +86,7 @@ kokku <-viimane %>%
   arrange(desc(kuupaev)) %>% 
   mutate(test = Sys.time())
 gs4_auth()
+0
 1
 mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
 

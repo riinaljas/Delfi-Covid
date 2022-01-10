@@ -30,6 +30,7 @@ jobs:
       env: 
         repo_token: ${{secrets.GITHUB_TOKEN }}
         MYJSONTOKEN: ${{secrets.MYJSONTOKEN }}
+        MYAPIKEY: ${{secrets.MYJSONTOKEN }}
       run: |
         Rscript pdfs.R
   
