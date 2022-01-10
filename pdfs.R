@@ -7,7 +7,7 @@ library(googlesheets4)
 library(googledrive)
 
 drive_auth_configure(api_key = "AIzaSyAJI5TfyRDt6YEcsIXLWzVw3Yr2DLZtB1M")
-
+gs4_auth()
 # options(gargle_oauth_cache = '.secrets')
 # 
 # options(gargle_oauth_email = TRUE)
@@ -75,7 +75,7 @@ kokku <-viimane %>%
   #bind_rows(eelmine) %>% 
   unique() %>% 
   arrange(desc(kuupaev)) %>% 
-  mutate(test = Sys.time())
+  mutate(test = "scripttöötas")
 
 
 mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
