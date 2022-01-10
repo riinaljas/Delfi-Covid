@@ -9,14 +9,7 @@ gs4_deauth()
 options(gargle_quiet = FALSE)
 
 
-drive_auth(
-  email = gargle::gargle_oauth_email(),
-  path = NULL,
-  cache = gargle::gargle_oauth_cache(),
-  use_oob = gargle::gargle_oob_default(),
-  token = NULL
-)
-1
+drive_auth(path = MYJSONTOKEN)
 
 # drive_auth_configure(api_key = "AIzaSyAJI5TfyRDt6YEcsIXLWzVw3Yr2DLZtB1M")
 # gs4_auth()
