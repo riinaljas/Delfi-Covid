@@ -3,20 +3,15 @@ library(janitor)
 library(gsheet)
 library(googledrive)
 library(googlesheets4)
-
-library(googledrive)
 gs4_deauth()
-options(gargle_quiet = FALSE)
-MYAPIKEY = Sys.getenv("MYAPIKEY")
-# MYJSONTOKEN = Sys.getenv("MYJSONTOKEN")
-# drive_auth(path = MYJSONTOKEN)
 
-drive_auth_configure(api_key = MYAPIKEY)
-
-options(gargle_oauth_cache = '.secrets')
-options(gargle_oauth_email = TRUE)
-
-print("GOT PAST API KEY")
+#Sys.setenv("MYHASH"="3b171fdb657ceb604a69679fa27b58c4_aljasriin@gmail.com")
+# MYJSONTOKEN=Sys.getenv("MYJSONTOKEN")
+# 
+# drive_auth(MYJSONTOKEN)
+# 
+# 
+# print("GOT PAST API KEY")
 # gs4_auth(
 # #   cache = ".secrets",
 # #   email = "aljasriin@gmail.com"
@@ -52,6 +47,8 @@ viimane <- viimased_14 %>%
               select(haiglaravil = active))
 
 
+
+
 doose_paevas <- read_csv("https://opendata.digilugu.ee/covid19/vaccination/v3/opendata_covid19_vaccination_total.csv") %>%
   clean_names() %>% 
   filter(statistics_date == max(statistics_date)) %>% 
@@ -84,12 +81,11 @@ kokku <-viimane %>%
   #bind_rows(eelmine) %>% 
   unique() %>% 
   arrange(desc(kuupaev)) %>% 
-  mutate(test = Sys.time())
-gs4_auth()
-0
-1
-mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
+  mutate(test = "tegelt tootab")
 
+mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
+gs4_browse(mydataurl)
+gs4_auth("aljasriin@gmail.com")
 sheet_write(kokku, mydataurl, sheet = 1)
 
 
