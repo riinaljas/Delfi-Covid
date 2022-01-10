@@ -6,7 +6,7 @@ library(googlesheets4)
 
 options(gargle_oauth_cache = '.secrets')
 
-options(gargle_oauth_email = "aljasriin@example.com")
+options(gargle_oauth_email = TRUE)
 
 list.files(".secrets/")
 
