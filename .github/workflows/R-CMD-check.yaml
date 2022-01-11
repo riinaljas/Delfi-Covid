@@ -2,7 +2,7 @@ name: pdfs
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: '0 11,12,13,14 * * 0-6'
+    - cron: '0 9,10,11,12* * 0-6'
 jobs:
   build:
     runs-on: macOS-latest
