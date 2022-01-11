@@ -19,7 +19,7 @@ jobs:
     #   with:
     #     workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
     #     service_account: 'delficovid@try-translate-314714.iam.gserviceaccount.com'
-    - name: Setup dependencies
+    - name: Setup dependencies and packages
       run: |
         R -e 'install.packages("tidyverse")'
         R -e 'install.packages("janitor")'
