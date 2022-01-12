@@ -83,7 +83,7 @@ kokku <-viimane %>%
   unique() %>% 
   arrange(desc(kuupaev))
 
-mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
+#mydataurl <-("https://docs.google.com/spreadsheets/d/1rlBv2-427pL7-KhVLPC5eQ1Ypm9QN79oVoXhU0jsVK4/edit#gid=0")      
 
 write_csv(kokku, "viimane.csv")
 
