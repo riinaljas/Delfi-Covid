@@ -37,7 +37,7 @@ jobs:
       run: |
         Rscript pdfs.R
   
-    - name: Commit files # commit the output folder
+    - name: Commit files # commmit the output folder
       run: git status
     - name: fetch
       run: git fetch --all
