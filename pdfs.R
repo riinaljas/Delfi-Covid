@@ -77,8 +77,7 @@ kokku <-viimane %>%
   bind_cols(vakts) %>% 
   bind_cols(doose_paevas) %>% 
   select(kuupaev, everything()) %>% 
-  mutate(test = Sys.time() %>% 
-           as.character()) %>% 
+  mutate(test = Sys.time()) %>% 
   bind_rows(eelmine) %>% 
   unique() %>% 
   arrange(desc(kuupaev))
