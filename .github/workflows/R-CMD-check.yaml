@@ -1,10 +1,10 @@
 name: pdfs
 on:
- push
-  #schedule:
+ #push
+  schedule:
    
-    # * is a special character in YAML so you have to quote this string
-    #- cron: 0 9-12 * * 0-6
+     #* is a special character in YAML so you have to quote this string
+    - cron: 0 9-12 * * 0-6
 jobs:
   build:
     runs-on: macOS-latest
