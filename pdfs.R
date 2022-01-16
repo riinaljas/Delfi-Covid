@@ -27,10 +27,6 @@ library(googlesheets4)
 
 
 
-##Koroonaviiruse levik Eestis (graafik)----
-eelmine <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1lNjjeDORk25Gv5c6vBxE51t429Uixwhyvy-Lc4ehbYE/edit#gid=0") %>% 
-  mutate(kuupaev = as.Date(kuupaev), 
-         test = as.Date(kuupaev))
 
 viimased_14 <- read_csv("https://opendata.digilugu.ee/opendata_covid19_tests_total.csv") %>% 
   clean_names()
@@ -80,7 +76,6 @@ kokku <-viimane %>%
   bind_cols(doose_paevas) %>% 
   select(kuupaev, everything()) %>% 
   mutate(test = Sys.time()) %>% 
-  bind_rows(eelmine) %>% 
   unique() %>% 
   arrange(desc(kuupaev))
 
