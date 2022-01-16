@@ -1,6 +1,6 @@
 name: pdfs
 on:
-push
+  push
   #schedule: 
    
    
