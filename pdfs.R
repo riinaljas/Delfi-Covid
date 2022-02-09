@@ -25,8 +25,12 @@ library(googlesheets4)
 #   token = NULL
 # )
 
-
-
+# 
+# file.remove("viimane_14.csv")
+# 
+# unlink("viimane_14.csv", recursive=TRUE)
+# 
+# download.file("https://opendata.digilugu.ee/opendata_covid19_tests_total.csv", "viimane_14.csv")
 
 viimased_14 <- read_csv("https://opendata.digilugu.ee/opendata_covid19_tests_total.csv") %>% 
   clean_names()
@@ -44,9 +48,7 @@ viimane <- viimased_14 %>%
               select(haiglaravil = active))
 
 
-
-
-doose_paevas <- read_csv("https://opendata.digilugu.ee/covid19/vaccination/v3/opendata_covid19_vaccination_total.csv") %>%
+doose_paevas <- read_csv("https://opendata.digilugu.ee/covid19/vaccination/v3/opendata_covid19_vaccination_total.csv") %>% 
   clean_names() %>% 
   filter(statistics_date == max(statistics_date)) %>% 
   #select(5, 7) %>% 
@@ -54,6 +56,7 @@ doose_paevas <- read_csv("https://opendata.digilugu.ee/covid19/vaccination/v3/op
   summarise(doose_paevas_kokku = sum(daily_count)) %>% 
   filter(measurement_type == "DosesAdministered") %>% 
   select(-1)
+
 
 vakts <- read_csv("https://opendata.digilugu.ee/covid19/vaccination/v3/opendata_covid19_vaccination_total.csv") %>%
   clean_names() %>% 
@@ -69,7 +72,6 @@ vakts <- read_csv("https://opendata.digilugu.ee/covid19/vaccination/v3/opendata_
                              vakts_tuup)) %>% 
   select(-1, -2, -3) %>% 
   pivot_wider(names_from = 2, values_from = 1)
-
 
 kokku <-viimane %>% 
   bind_cols(vakts) %>% 
